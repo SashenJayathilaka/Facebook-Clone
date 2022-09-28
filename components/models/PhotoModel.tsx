@@ -41,7 +41,7 @@ export default function PhotoModel({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} className="rounded-md">
           <Typography
             id="modal-modal-title"
             variant="h6"
