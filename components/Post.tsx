@@ -232,7 +232,7 @@ const Post: React.FC<PostProps> = ({
                         </div>
                         <div className="p-2 text-xs text-gray-500 dark:text-dark-txt">
                           {moment(
-                            new Date(timestamp?.seconds * 1000)
+                            new Date(data.data().timestamp?.seconds * 1000)
                           ).fromNow()}
                         </div>
                         {/*  <!-- COMMENT --> */}
