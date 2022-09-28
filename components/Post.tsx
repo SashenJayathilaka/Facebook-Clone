@@ -192,7 +192,11 @@ const Post: React.FC<PostProps> = ({
               )}
 
               <div
-                className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-dark-third text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-dark-txt"
+                className={
+                  open
+                    ? `w-1/3 flex space-x-2 justify-center items-center bg-gray-100 dark:hover:bg-dark-third text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-dark-txt`
+                    : `w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-dark-third text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-dark-txt`
+                }
                 onClick={open ? () => setOpen(false) : () => setOpen(true)}
               >
                 <InsertCommentIcon />
@@ -291,7 +295,6 @@ const Post: React.FC<PostProps> = ({
           )}
         </>
       )}
-
       {/* <!-- END COMMENT FORM --> */}
     </div>
   );

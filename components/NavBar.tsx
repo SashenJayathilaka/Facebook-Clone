@@ -32,9 +32,9 @@ const NavBar: React.FC<NavBarProps> = () => {
             <>
               <div className="mr-2 hidden md:inline-block">
                 <img
-                  src="https://logos-world.net/wp-content/uploads/2020/04/Facebook-Logo.png"
+                  src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png"
                   alt="Facebook logo"
-                  className="w-32 h-auto rounded-full"
+                  className="w-24 h-auto rounded-full"
                 />
               </div>
               <div className="inline-block md:hidden">
@@ -98,7 +98,7 @@ const NavBar: React.FC<NavBarProps> = () => {
               <li className="w-1/5 md:w-max text-center">
                 <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
                   <LiveTvIcon />
-                  <span className="animate-ping text-xs absolute top-2 right-1/4 bg-red-500 text-white font-semibold rounded-full px-1 text-center">
+                  <span className="text-xs absolute top-2 right-1/4 bg-red-500 text-white font-semibold rounded-full px-1 text-center">
                     9+
                   </span>
                 </div>
@@ -116,7 +116,7 @@ const NavBar: React.FC<NavBarProps> = () => {
               <li className="w-1/5 md:w-max text-center hidden md:inline-block">
                 <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
                   <ViewComfyIcon />
-                  <span className="animate-ping text-xs absolute top-2 right-1/4 bg-red-500 text-white font-semibold rounded-full px-1 text-center">
+                  <span className="text-xs absolute top-2 right-1/4 bg-red-500 text-white font-semibold rounded-full px-1 text-center">
                     9+
                   </span>
                 </div>
@@ -133,17 +133,9 @@ const NavBar: React.FC<NavBarProps> = () => {
         <ul className="hidden md:flex mx-4 items-center justify-center">
           <li className="h-full hidden xl:flex">
             {user ? (
-              <div
-                onClick={logout}
-                className="cursor-pointer inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1"
-              >
-                <img
-                  src={user?.photoURL as string}
-                  alt="Profile picture"
-                  className="rounded-full h-10 w-10"
-                />
+              <div className="cursor-pointer inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1">
                 <span className="mx-2 font-semibold dark:text-dark-txt">
-                  {user?.displayName}
+                  Find Friends
                 </span>
               </div>
             ) : (
@@ -180,6 +172,19 @@ const NavBar: React.FC<NavBarProps> = () => {
                   <span className="animate-ping text-xs absolute top-0 right-0 bg-red-500 text-white font-semibold rounded-full px-1 text-center">
                     9
                   </span>
+                </div>
+              </li>
+              <li>
+                <div
+                  onClick={logout}
+                  className="text-xl grid place-items-center  dark:bg-dark-third dark:text-dark-txt rounded-full p-3 cursor-pointer  relative"
+                  id="dark-mode-toggle"
+                >
+                  <img
+                    src={user?.photoURL as string}
+                    alt="Profile picture"
+                    className="rounded-full h-10 w-10"
+                  />
                 </div>
               </li>
               {/*               <li>
