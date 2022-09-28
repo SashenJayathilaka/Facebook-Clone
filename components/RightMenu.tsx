@@ -69,7 +69,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
           <div className="flex justify-between mt-3 cursor-pointer hover:bg-gray-300 px-2 py-2 rounded-md">
             <img
               className="w-8 h-8 mr-2"
-              src="https://www.pngitem.com/pimgs/m/58-580552_blue-red-ribbon-clip-art-cobalt-blue-present.png"
+              src="https://i.postimg.cc/Hx6JnHMg/58-580552-blue-red-ribbon-clip-art-cobalt-blue-present.png"
               alt=""
             />
             <p className="text-md">
