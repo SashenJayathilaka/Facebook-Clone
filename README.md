@@ -12,7 +12,7 @@
 ### :camera: Screenshots
 
 <div align="center">
-<a href="https://project-delta-brown.vercel.app" target="_blank"><img src='https://user-images.githubusercontent.com/99184393/192956366-2b529310-e3c3-4598-af6e-b3aa8a27c8ec.gif' alt='image'/></a>
+<a href="https://project-delta-brown.vercel.app" target="_blank"><img width='800' src='https://user-images.githubusercontent.com/99184393/192956366-2b529310-e3c3-4598-af6e-b3aa8a27c8ec.gif' alt='image'/></a>
 </div>
 
 ## <a href="https://project-delta-brown.vercel.app" target="_blank">LIVE DEMO 💥</a>
