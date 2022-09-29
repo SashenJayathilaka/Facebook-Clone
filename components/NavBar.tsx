@@ -30,14 +30,14 @@ const NavBar: React.FC<NavBarProps> = () => {
         <div className="flex items-center justify-between w-full md:w-max px-4 py-2">
           {user ? (
             <>
-              <div className="mr-2 hidden md:inline-block">
+              <div className="mr-2 hidden md:inline-block cursor-pointer">
                 <img
                   src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png"
                   alt="Facebook logo"
                   className="w-24 h-auto rounded-full"
                 />
               </div>
-              <div className="inline-block md:hidden">
+              <div className="inline-block md:hidden cursor-pointer">
                 <img
                   src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png"
                   alt=""
@@ -47,14 +47,14 @@ const NavBar: React.FC<NavBarProps> = () => {
             </>
           ) : (
             <>
-              <div className="mr-2 hidden md:inline-block">
+              <div className="mr-2 hidden md:inline-block cursor-pointer">
                 <img
                   src="https://logos-world.net/wp-content/uploads/2020/04/Facebook-Logo.png"
                   alt="Facebook logo"
                   className="w-24 h-auto rounded-full"
                 />
               </div>
-              <div className="inline-block md:hidden">
+              <div className="inline-block md:hidden cursor-pointer">
                 <img
                   src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png"
                   alt=""

@@ -69,7 +69,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
           <div className="flex justify-between mt-3 cursor-pointer hover:bg-gray-300 px-2 py-2 rounded-md">
             <img
               className="w-8 h-8 mr-2"
-              src="https://www.pngitem.com/pimgs/m/58-580552_blue-red-ribbon-clip-art-cobalt-blue-present.png"
+              src="https://i.postimg.cc/Hx6JnHMg/58-580552-blue-red-ribbon-clip-art-cobalt-blue-present.png"
               alt=""
             />
             <p className="text-md">
@@ -103,7 +103,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
                   <img
                     src={data.avatar}
                     alt="Friends profile picture"
-                    className="rounded-full w-10 h-10 border-4 px-1 py-1 border-blue-500"
+                    className="rounded-full w-10 h-10 border-2 px-1 py-1 border-blue-500"
                   />
                   <span className="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
                 </div>
