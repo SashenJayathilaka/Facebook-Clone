@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
+import moment from "moment";
 
 type LeftMenuProps = {};
 
@@ -77,9 +78,11 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
     <div className="overflow-scroll scrollbar-hide w-1/5 pt-16 h-full hidden xl:flex flex-col fixed top-0 left-0 hover:scrollbar-thin hover:scrollbar-thumb-slate-400 hover:scrollbar-default">
       <ul className="p-4">
         <li>
-          <div className="flex justify-between items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third mb-4">
+          <div className="flex justify-between cursor-pointer items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third mb-4">
             <h1 className="text-2xl font-bold">Home</h1>
-            <span className="font-semibold text-blue-500">Create</span>
+            {user && (
+              <span className="font-semibold text-blue-500">Create</span>
+            )}
           </div>
         </li>
         <li>
@@ -109,29 +112,34 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
             </div>
           )}
         </li>
-        {sideData.map((data, index) => (
-          <li key={index}>
-            <div className="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
-              <img
-                src={data.image}
-                alt="Profile picture"
-                className="w-10 h-10 rounded-full"
-              />
-              <span className="font-semibold">{data.name}</span>
-            </div>
-          </li>
-        ))}
+        {user && (
+          <>
+            {sideData.map((data, index) => (
+              <li key={index}>
+                <div className="flex items-center cursor-pointer space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+                  <img
+                    src={data.image}
+                    alt="Profile picture"
+                    className="w-10 h-10 rounded-full"
+                  />
+                  <span className="font-semibold">{data.name}</span>
+                </div>
+              </li>
+            ))}
 
-        <li>
-          <div className="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
-            <span className="w-10 h-10 rounded-full grid place-items-center bg-gray-300 dark:bg-dark-second">
-              <KeyboardArrowDownIcon />
-            </span>
-            <span className="font-semibold">See more</span>
-          </div>
-        </li>
-        <li className="border-b border-gray-200 dark:border-dark-third mt-6"></li>
+            <li>
+              <div className="flex items-center cursor-pointer space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+                <span className="w-10 h-10 rounded-full grid place-items-center bg-gray-300 dark:bg-dark-second">
+                  <KeyboardArrowDownIcon />
+                </span>
+                <span className="font-semibold">See more</span>
+              </div>
+            </li>
+            <li className="border-b border-gray-200 dark:border-dark-third mt-6"></li>
+          </>
+        )}
       </ul>
+
       {/*   {user && (
         <>
           <div className="flex justify-between items-center px-4 h-4 group">
@@ -171,6 +179,21 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
           </ul>
         </>
       )} */}
+      <div className="mt-auto p-6 text-sm text-gray-500 dark:text-dark-txt">
+        <span>Privacy</span>
+        <span>.</span>
+        <span>Terms</span>
+        <span>.</span>
+        <span>Advertising</span>
+        <span>.</span>
+        <span>Cookies</span>
+        <span>.</span>
+        <span>Ad choices</span>
+        <span>.</span>
+        <span>More</span>
+        <span>.</span>
+        <span>Meta © {moment().format("YYYY")}</span>
+      </div>
     </div>
   );
 };
