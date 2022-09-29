@@ -134,13 +134,15 @@ const Post: React.FC<PostProps> = ({
       {/* <!-- END POST AUTHOR --> */}
 
       {/*  <!-- POST CONTENT --> */}
-      <div className="text-justify px-4 py-2">{caption}</div>
+      {caption && <div className="text-justify px-4 py-2">{caption}</div>}
       {/* <!-- END POST CONTENT --> */}
 
       {/* <!-- POST IMAGE --> */}
-      <div className="flex justify-center py-2 m-auto">
-        <img src={image} alt="Post image" />
-      </div>
+      {image && (
+        <div className="flex justify-center py-2 m-auto">
+          <img src={image} alt="Post image" />
+        </div>
+      )}
       {/*  <!-- END POST IMAGE --> */}
 
       {/* <!-- POST REACT --> */}

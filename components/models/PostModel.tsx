@@ -178,7 +178,6 @@ export default function PostModel({ setOpen, open }: Props) {
                     : `bg-blue-500 font-semibold cursor-not-allowed text-white rounded-xl text-md border border-blue-500 px-8 hover:bg-blue-300`
                 }
                 onClick={handleCreateCommunity}
-                disabled={!selectedFile || !caption}
               >
                 POST
               </button>
