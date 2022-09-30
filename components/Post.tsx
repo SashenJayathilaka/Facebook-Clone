@@ -197,7 +197,7 @@ const Post: React.FC<PostProps> = ({
                 className={
                   open
                     ? `w-1/3 flex space-x-2 justify-center items-center bg-gray-100 dark:bg-gray-800  dark:hover:bg-gray-800  text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200`
-                    : `w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-800 dark:hover:bg-dark-third text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200`
+                    : `w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200`
                 }
                 onClick={open ? () => setOpen(false) : () => setOpen(true)}
               >
