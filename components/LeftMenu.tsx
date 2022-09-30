@@ -75,10 +75,10 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
   }, []); */
 
   return (
-    <div className="overflow-scroll scrollbar-hide w-1/5 pt-16 h-full hidden xl:flex flex-col fixed top-0 left-0 hover:scrollbar-thin hover:scrollbar-thumb-slate-400 hover:scrollbar-default">
+    <div className="overflow-scroll bg-[#f7f7f7] dark:bg-[#18191a]  scrollbar-hide w-1/5 pt-16 h-full hidden xl:flex flex-col fixed top-0 left-0 hover:scrollbar-thin hover:scrollbar-thumb-slate-400 hover:scrollbar-default">
       <ul className="p-4">
         <li>
-          <div className="flex justify-between cursor-pointer items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third mb-4">
+          <div className="flex justify-between cursor-pointer items-center space-x-2 p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition-all dark:text-white dark:hover:bg-dark-third mb-4">
             <h1 className="text-2xl font-bold">Home</h1>
             {user && (
               <span className="font-semibold text-blue-500">Create</span>
@@ -89,7 +89,7 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
           {user ? (
             <div
               onClick={logout}
-              className="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third cursor-pointer"
+              className="flex items-center space-x-2 p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third dark:hover:text-white cursor-pointer"
             >
               <img
                 src={user?.photoURL as string}
@@ -100,7 +100,7 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
             </div>
           ) : (
             <div
-              className="animate-pulse flex items-center space-x-2 p-2 cursor-pointer hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third"
+              className="animate-pulse flex items-center space-x-2 p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition-all dark:text-dark-txt"
               onClick={() => router.push("/auth/login")}
             >
               <img
@@ -116,7 +116,7 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
           <>
             {sideData.map((data, index) => (
               <li key={index}>
-                <div className="flex items-center cursor-pointer space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+                <div className="flex items-center cursor-pointer space-x-2 p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
                   <img
                     src={data.image}
                     alt="Profile picture"
@@ -128,7 +128,7 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
             ))}
 
             <li>
-              <div className="flex items-center cursor-pointer space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+              <div className="flex items-center cursor-pointer space-x-2 p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
                 <span className="w-10 h-10 rounded-full grid place-items-center bg-gray-300 dark:bg-dark-second">
                   <KeyboardArrowDownIcon />
                 </span>
@@ -179,7 +179,7 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
           </ul>
         </>
       )} */}
-      <div className="mt-auto p-6 text-sm text-gray-500 dark:text-dark-txt">
+      <div className="mt-auto p-6 text-sm text-gray-500 dark:text-gray-400">
         <span>Privacy</span>
         <span>.</span>
         <span>Terms</span>

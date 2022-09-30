@@ -92,24 +92,24 @@ export default function PostModel({ setOpen, open }: Props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="rounded-md">
+        <Box sx={style} className="rounded-md dark:bg-[#18191a]">
           <div className="flex justify-between">
             <button
-              className="text-sm font-medium text-blue-500"
+              className="text-sm font-medium text-blue-500 dark:text-blue-300"
               onClick={handleClose}
             >
               Cancel
             </button>
 
-            <h1 className="text-xl font-semibold text-gray-500 ">
+            <h1 className="text-xl font-semibold text-gray-500 dark:text-gray-300">
               Create Post
             </h1>
             <IconButton>
-              <MoreHorizIcon />
+              <MoreHorizIcon className="dark:text-gray-300" />
             </IconButton>
           </div>
 
-          <hr />
+          <div className="border-b border-gray-200 dark:border-gray-700 mb-3"></div>
 
           <div className="m-5">
             <div className="flex justify-start text-center">
@@ -117,7 +117,7 @@ export default function PostModel({ setOpen, open }: Props) {
                 alt={user?.displayName as string}
                 src={user?.photoURL as string}
               />
-              <h1 className="ml-2 text-center text-black font-bold">
+              <h1 className="ml-2 text-center text-black font-bold dark:text-gray-200">
                 {user?.displayName}
               </h1>
               <div className="absolute top-24 left-20 mt-2 mb-2">
@@ -128,15 +128,16 @@ export default function PostModel({ setOpen, open }: Props) {
             </div>
           </div>
 
-          <hr />
-          <Typography className="flex justify-center m-5">
+          <div className="border-b border-gray-200 dark:border-gray-700 mb-3"></div>
+
+          <Typography className="flex justify-center m-5 ">
             <textarea
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
               rows={6}
               cols={60}
               placeholder="What's on your mind?"
-              className="outline-none placeholder:text-xl"
+              className="outline-none placeholder:text-xl dark:bg-[#18191a]"
             />
           </Typography>
 
@@ -146,22 +147,22 @@ export default function PostModel({ setOpen, open }: Props) {
             </div>
             <div className="m-3">
               <IconButton onClick={() => setSecondOpen(true)}>
-                <AddPhotoAlternateIcon className="text-green-500  text-3xl hover:bg-green-200 rounded-full" />
+                <AddPhotoAlternateIcon className="text-green-500  text-3xl hover:bg-green-200 dark:hover:bg-gray-800 rounded-full" />
               </IconButton>
               <IconButton onClick={() => setSecondOpen(true)}>
-                <VideoCallIcon className="text-purple-500 text-3xl hover:bg-green-200 rounded-full" />
+                <VideoCallIcon className="text-purple-500 text-3xl hover:bg-green-200 dark:hover:bg-gray-800 rounded-full" />
               </IconButton>
               <IconButton>
-                <PersonAddIcon className="text-blue-500  text-3xl hover:bg-red-200 rounded-full" />
+                <PersonAddIcon className="text-blue-500  text-3xl hover:bg-red-200 dark:hover:bg-gray-800 rounded-full" />
               </IconButton>
               <IconButton>
-                <SentimentVerySatisfiedIcon className="text-yellow-600 text-3xl hover:bg-red-200 rounded-full" />
+                <SentimentVerySatisfiedIcon className="text-yellow-600 text-3xl hover:bg-red-200 dark:hover:bg-gray-800 rounded-full" />
               </IconButton>
               <IconButton>
-                <LocationOnIcon className="text-red-500  text-3xl hover:bg-red-200 rounded-full" />
+                <LocationOnIcon className="text-red-500  text-3xl hover:bg-red-200 dark:hover:bg-gray-800 rounded-full" />
               </IconButton>
               <IconButton>
-                <MoreHorizIcon className="text-gray-500 text-2xl hover:bg-red-200 rounded-full" />
+                <MoreHorizIcon className="text-gray-500 text-2xl hover:bg-red-200 dark:hover:bg-gray-800 dark:text-gray-200 rounded-full" />
               </IconButton>
             </div>
           </div>

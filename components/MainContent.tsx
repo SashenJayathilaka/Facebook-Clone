@@ -26,7 +26,7 @@ const MainContent: React.FC<MainContentProps> = () => {
   }, []);
 
   return (
-    <div className="relative flex space-x-2 pt-4">
+    <div className="relative flex space-x-2 pt-4 ">
       <div className="w-1/4 sm:w-1/6 h-44 rounded-xl shadow overflow-hidden flex flex-col group cursor-pointer">
         <div className="h-3/5 overflow-hidden">
           <img
@@ -35,7 +35,7 @@ const MainContent: React.FC<MainContentProps> = () => {
             className="group-hover:transform group-hover:scale-110 transition-all duration-700"
           />
         </div>
-        <div className="flex-1 relative flex items-end justify-center pb-2 text-center leading-none dark:bg-dark-second dark:text-dark-txt">
+        <div className="flex-1 relative flex items-end justify-center pb-2 text-center leading-none">
           <span className="font-semibold">
             Create a <br /> Story
           </span>
@@ -52,7 +52,7 @@ const MainContent: React.FC<MainContentProps> = () => {
             alt="Story images"
             className="group-hover:transform group-hover:scale-110 transition-all duration-700 h-full w-full"
           />
-          <div className="w-full h-full bg-black absolute top-0 left-0 bg-opacity-10"></div>
+          <div className="w-full h-full bg-black  absolute top-0 left-0 bg-opacity-10"></div>
           <span className="absolute bottom-0 left-2 pb-2 font-semibold text-white">
             Your story
           </span>
@@ -83,7 +83,7 @@ const MainContent: React.FC<MainContentProps> = () => {
         </div>
       ))}
 
-      <div className="w-12 h-12 rounded-full hidden lg:grid place-items-center text-2xl bg-white absolute -right-6 top-1/2 transform -translate-y-1/2 border border-gray-200 cursor-pointer hover:bg-gray-100 shadow text-gray-500 dark:bg-dark-third dark:border-dark-third dark:text-dark-txt">
+      <div className="w-12 h-12 rounded-full hidden lg:grid place-items-center text-2xl bg-white absolute -right-6 top-1/2 transform -translate-y-1/2 border border-gray-200 cursor-pointer hover:bg-gray-100 shadow text-gray-500 dark:border-0 dark:text-white dark:hover:bg-gray-800 dark:bg-gray-700">
         <ArrowForwardIosIcon />
       </div>
     </div>

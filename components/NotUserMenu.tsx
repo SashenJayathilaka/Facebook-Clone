@@ -27,7 +27,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
     <div className="w-1/5 pt-16 h-full hidden xl:block px-4 fixed top-0 right-0 overflow-scroll scrollbar-hide">
       <div className="h-full">
         <div className="flex justify-between items-center px-0 pt-4">
-          <span className="font-semibold text-gray-500 text-lg dark:text-dark-txt">
+          <span className="font-semibold text-gray-500 text-lg dark:text-gray-300 mb-5">
             Sponsored
           </span>
         </div>
@@ -74,7 +74,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
         <ul className="p-2">
           {suggestions.map((data, index) => (
             <li key={index}>
-              <div className="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div className="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg cursor-pointer">
                 <div className="relative">
                   <img
                     src={data.avatar}
