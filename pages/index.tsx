@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         />
       </Head>
       <NavBar />
-      <section className="flex justify-center h-auto">
+      <section className="flex justify-center h-screen overflow-y-scroll">
         <LeftMenu />
         <div className="w-full lg:w-2/3 xl:w-2/5 pt-32 lg:pt-16 px-2 ">
           {user && (
