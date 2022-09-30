@@ -63,7 +63,7 @@ const Login: React.FC<LoginProps> = () => {
             <div>
               <SignInWithFacebook />
 
-              <div className="flex justify-center text-xl font-semibold mt-2 mb-2">
+              <div className="flex justify-center text-xl font-semibold mt-2 mb-2 dark:text-black text-black">
                 <h1>OR</h1>
               </div>
 

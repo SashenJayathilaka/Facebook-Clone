@@ -13,12 +13,16 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { useTheme } from "next-themes";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 type NavBarProps = {};
 
 const NavBar: React.FC<NavBarProps> = () => {
   const [user] = useAuthState(auth);
   const router = useRouter();
+  const { setTheme, resolvedTheme, theme } = useTheme();
 
   const logout = async () => {
     await signOut(auth);
@@ -26,7 +30,7 @@ const NavBar: React.FC<NavBarProps> = () => {
 
   return (
     <div>
-      <nav className="bg-white dark:bg-dark-second h-max md:h-14 w-full shadow flex flex-col md:flex-row items-center justify-center md:justify-between fixed top-0 z-50 border-b dark:border-dark-third">
+      <nav className="bg-white dark:bg-[#18191a] h-max md:h-14 w-full shadow flex flex-col md:flex-row items-center justify-center md:justify-between fixed top-0 z-50 border-b dark:border-0 dark:border-dark-third">
         <div className="flex items-center justify-between w-full md:w-max px-4 py-2">
           {user ? (
             <>
@@ -66,7 +70,7 @@ const NavBar: React.FC<NavBarProps> = () => {
 
           {user && (
             <div className="flex items-center justify-between space-x-1">
-              <div className="relative bg-gray-100 dark:bg-dark-third px-2 py-2 w-10 h-10 sm:w-11 sm:h-11 lg:h-10 lg:w-10 xl:w-max xl:pl-3 xl:pr-8 rounded-full flex items-center justify-center cursor-pointer">
+              <div className="relative bg-gray-100 dark:bg-gray-600 px-2 py-2 w-10 h-10 dark:text-gray-300 sm:w-11 sm:h-11 lg:h-10 lg:w-10 xl:w-max xl:pl-3 xl:pr-8 rounded-full flex items-center justify-center cursor-pointer">
                 <i className="bx bx-search-alt-2 text-xl xl:mr-2 dark:text-dark-txt"></i>
                 <input
                   type="text"
@@ -96,7 +100,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           {user && (
             <>
               <li className="w-1/5 md:w-max text-center">
-                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer dark:text-gray-300 dark:hover:bg-gray-800 text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
                   <LiveTvIcon />
                   <span className="text-xs absolute top-2 right-1/4 bg-red-500 text-white font-semibold rounded-full px-1 text-center">
                     9+
@@ -104,17 +108,17 @@ const NavBar: React.FC<NavBarProps> = () => {
                 </div>
               </li>
               <li className="w-1/5 md:w-max text-center">
-                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer dark:text-gray-300 dark:hover:bg-gray-800 text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
                   <StoreIcon />
                 </div>
               </li>
               <li className="w-1/5 md:w-max text-center">
-                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer dark:text-gray-300 dark:hover:bg-gray-800 text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
                   <PeopleIcon />
                 </div>
               </li>
               <li className="w-1/5 md:w-max text-center hidden md:inline-block">
-                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer dark:text-gray-300 dark:hover:bg-gray-800 text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
                   <ViewComfyIcon />
                   <span className="text-xs absolute top-2 right-1/4 bg-red-500 text-white font-semibold rounded-full px-1 text-center">
                     9+
@@ -122,7 +126,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                 </div>
               </li>
               <li className="w-1/5 md:w-max text-center inline-block md:hidden">
-                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+                <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer dark:text-gray-300 dark:hover:bg-gray-800 text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
                   <ViewComfyIcon />
                 </div>
               </li>
@@ -133,15 +137,13 @@ const NavBar: React.FC<NavBarProps> = () => {
         <ul className="hidden md:flex mx-4 items-center justify-center">
           <li className="h-full hidden xl:flex">
             {user ? (
-              <div className="cursor-pointer inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1">
-                <span className="mx-2 font-semibold dark:text-dark-txt">
-                  Find Friends
-                </span>
+              <div className="cursor-pointer inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 mx-1">
+                <span className="mx-2 font-semibold ">Find Friends</span>
               </div>
             ) : (
               <div
                 onClick={() => router.push("/auth/login")}
-                className="animate-pulse cursor-pointer inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1"
+                className="animate-pulse cursor-pointer inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 mx-1"
               >
                 <img
                   src="https://th.bing.com/th/id/OIP.Cl56H6WgxJ8npVqyhefTdQHaHa?pid=ImgDet&rs=1"
@@ -157,17 +159,17 @@ const NavBar: React.FC<NavBarProps> = () => {
           {user && (
             <>
               <li>
-                <div className="text-xl hidden xl:grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
+                <div className="text-xl hidden xl:grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
                   <AddIcon />
                 </div>
               </li>
               <li>
-                <div className="text-xl hidden xl:grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
+                <div className="text-xl hidden xl:grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
                   <MessageIcon />
                 </div>
               </li>
               <li>
-                <div className="text-xl grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
+                <div className="text-xl grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
                   <NotificationsIcon />
                   <span className="animate-ping text-xs absolute top-0 right-0 bg-red-500 text-white font-semibold rounded-full px-1 text-center">
                     9
@@ -187,15 +189,30 @@ const NavBar: React.FC<NavBarProps> = () => {
                   />
                 </div>
               </li>
-              {/*               <li>
-                <div
-                  className="text-xl grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
-                  id="dark-mode-toggle"
-                >
-                  <DarkModeIcon />
-                </div>
-              </li> */}
             </>
+          )}
+          {resolvedTheme === "dark" ? (
+            <li>
+              <div
+                onClick={() =>
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                }
+                className="text-xl grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
+              >
+                <LightModeIcon />
+              </div>
+            </li>
+          ) : (
+            <li>
+              <div
+                onClick={() =>
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                }
+                className="text-xl grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
+              >
+                <DarkModeIcon />
+              </div>
+            </li>
           )}
         </ul>
       </nav>

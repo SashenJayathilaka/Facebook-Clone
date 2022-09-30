@@ -41,7 +41,7 @@ export default function PhotoModel({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="rounded-md">
+        <Box sx={style} className="rounded-md dark:bg-[#18191a]">
           <Typography
             id="modal-modal-title"
             variant="h6"
@@ -57,7 +57,7 @@ export default function PhotoModel({
               </div>
               <div className="flex justify-center mr-auto ml-auto mt-2 mb-2">
                 <button
-                  className="bg-transparent  rounded-xl text-md border border-red-500 px-5 hover:bg-red-300"
+                  className="bg-transparent  rounded-xl text-md border border-red-500 px-5 hover:bg-red-300 dark:hover:bg-red-800"
                   onClick={() => setSelectedFile("")}
                 >
                   Remove
@@ -67,7 +67,7 @@ export default function PhotoModel({
           ) : (
             <div className="flex justify-center mr-auto ml-auto mt-8 mb-6">
               <button
-                className="bg-transparent font-semibold rounded-xl text-md border border-blue-500 px-5 hover:bg-blue-300"
+                className="bg-transparent font-semibold rounded-xl text-md border border-blue-500 px-5 hover:bg-blue-300 dark:hover:bg-blue-800"
                 onClick={() => selectedFileRef.current?.click()}
               >
                 Select images to share
@@ -85,14 +85,14 @@ export default function PhotoModel({
             {selectedFile ? (
               <button
                 onClick={handleClose}
-                className="bg-blue-500 font-semibold text-white rounded-xl text-md border border-blue-500 px-8 hover:bg-blue-300"
+                className="bg-blue-500 font-semibold text-white rounded-xl text-md border border-blue-500 px-8 hover:bg-blue-300 dark:hover:bg-blue-800"
               >
                 Done
               </button>
             ) : (
               <button
                 onClick={handleClose}
-                className="bg-transparent font-semibold rounded-xl text-md border border-blue-500 px-5 hover:bg-blue-200"
+                className="bg-transparent font-semibold rounded-xl text-md border border-blue-500 px-5 hover:bg-blue-200 dark:hover:bg-blue-800"
               >
                 back to post
               </button>

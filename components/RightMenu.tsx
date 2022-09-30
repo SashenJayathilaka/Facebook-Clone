@@ -26,10 +26,10 @@ const RightMenu: React.FC<RightMenuProps> = () => {
   }, []);
 
   return (
-    <div className="w-1/5 pt-16 h-full hidden xl:block px-4 fixed top-0 right-0 overflow-scroll scrollbar-hide">
+    <div className="w-1/5 bg-[#f7f7f7] dark:bg-[#18191a] pt-16 h-full hidden xl:block px-4 fixed top-0 right-0 overflow-scroll scrollbar-hide">
       <div className="h-full">
         <div className="flex justify-between items-center px-0 pt-4">
-          <span className="font-semibold text-gray-500 text-lg dark:text-dark-txt">
+          <span className="font-semibold text-gray-500 text-lg dark:text-gray-300">
             Sponsored
           </span>
         </div>
@@ -63,10 +63,10 @@ const RightMenu: React.FC<RightMenuProps> = () => {
         <div className="border-b border-gray-200 dark:border-dark-third mb-3"></div>
 
         <div>
-          <div className="flex justify-start font-semibold text-lg text-gray-600">
+          <div className="flex justify-start font-semibold text-lg text-gray-600 dark:text-gray-300">
             <h1>Birthdays</h1>
           </div>
-          <div className="flex justify-between mt-3 cursor-pointer hover:bg-gray-300 px-2 py-2 rounded-md">
+          <div className="flex justify-between mt-3 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-800 px-2 py-2 rounded-md">
             <img
               className="w-8 h-8 mr-2"
               src="https://i.postimg.cc/Hx6JnHMg/58-580552-blue-red-ribbon-clip-art-cobalt-blue-present.png"
@@ -84,13 +84,13 @@ const RightMenu: React.FC<RightMenuProps> = () => {
 
         <div className="border-b border-gray-200 dark:border-dark-third mt-3"></div>
 
-        <div className="flex justify-between items-center px-4 pt-4 text-gray-500 dark:text-dark-txt">
+        <div className="flex justify-between items-center px-4 pt-4 text-gray-500 dark:text-gray-300">
           <span className="font-semibold text-lg">Contacts</span>
           <div className="flex space-x-1">
-            <div className="w-8 h-8 grid place-items-center text-xl hover:bg-gray-200 dark:hover:bg-dark-third rounded-full cursor-pointer">
+            <div className="w-8 h-8 grid place-items-center text-xl hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full cursor-pointer">
               <SearchIcon />
             </div>
-            <div className="w-8 h-8 grid place-items-center text-xl hover:bg-gray-200 dark:hover:bg-dark-third rounded-full cursor-pointer">
+            <div className="w-8 h-8 grid place-items-center text-xl hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full cursor-pointer">
               <MoreHorizIcon />
             </div>
           </div>
@@ -98,7 +98,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
         <ul className="p-2">
           {suggestions.map((data, index) => (
             <li key={index}>
-              <div className="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div className="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg cursor-pointer">
                 <div className="relative">
                   <img
                     src={data.avatar}
