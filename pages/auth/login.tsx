@@ -9,6 +9,7 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/firebase";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
+import SignInWithFacebook from "../../components/SignInWithFacebook";
 
 type LoginProps = {};
 
@@ -60,13 +61,26 @@ const Login: React.FC<LoginProps> = () => {
           </div>
           <div className="mt-8 space-y-6">
             <div>
-              <button
-                onClick={() => signInWithGoogle()}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-xl font-medium rounded-md text-white bg-blue-600 hover:bg-lightblue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-50"
-              >
-                <LockPersonIcon className="mr-4 mt-1" />
-                Sign with Google
-              </button>
+              <SignInWithFacebook />
+
+              <div className="flex justify-center text-xl font-semibold mt-2 mb-2 dark:text-black text-black">
+                <h1>OR</h1>
+              </div>
+
+              <div>
+                <button
+                  onClick={() => signInWithGoogle()}
+                  className="group relative w-full flex justify-center py-2 px-4 border border-gray-500 text-xl font-medium rounded-md text-black bg-gray-200 hover:hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-50"
+                >
+                  <LockPersonIcon className="mr-auto mt-auto mb-auto" />
+                  <img
+                    className="w-6 h-6 mt-auto mb-auto mr-5"
+                    src="https://www.northeastkia.com/static/dealer-18644/reviews-logos/google-minimal-logo.png"
+                    alt=""
+                  />
+                  <p className="mr-auto">Sign with Google</p>
+                </button>
+              </div>
             </div>
           </div>
         </div>

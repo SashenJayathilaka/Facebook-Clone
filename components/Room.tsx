@@ -20,7 +20,7 @@ const Room: React.FC<RoomProps> = () => {
     //console.log(suggestions);
   }, []);
   return (
-    <div className="p-4 mt-4 shadow rounded-lg bg-white dark:bg-dark-second overflow-hidden">
+    <div className="p-4 mt-4 shadow rounded-lg bg-white dark:bg-[#28282B] overflow-hidden">
       <div className="flex space-x-4 relative">
         <div className="w-1/2 lg:w-3/12 flex space-x-2 items-center justify-center border-2 border-blue-200 dark:border-blue-700 rounded-full cursor-pointer">
           <VideoCallIcon className="text-2xl text-purple-500" />
@@ -39,7 +39,7 @@ const Room: React.FC<RoomProps> = () => {
           </div>
         ))}
 
-        <div className="w-12 h-12 rounded-full hidden lg:grid place-items-center text-2xl text-gray-500 bg-white absolute right-0 top-1/2 transform -translate-y-1/2 border border-gray-200 cursor-pointer hover:bg-gray-100 shadow dark:bg-dark-third dark:border-dark-third dark:text-dark-txt">
+        <div className="w-12 h-12 rounded-full hidden lg:grid place-items-center text-2xl text-gray-500 bg-white absolute right-0 top-1/2 transform -translate-y-1/2 border border-gray-200 cursor-pointer hover:bg-gray-100 shadow dark:bg-gray-700 dark:border-0 dark:text-gray-200 dark:hover:bg-gray-800">
           <ArrowForwardIosIcon />
         </div>
       </div>

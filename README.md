@@ -7,13 +7,12 @@
 ![](https://img.shields.io/github/issues/SashenJayathilaka/Facebook-Clone)
 ![](https://img.shields.io/github/last-commit/SashenJayathilaka/Facebook-Clone)
 
-
 <!-- Screenshots -->
 
 ### :camera: Screenshots
 
 <div align="center">
-<a href="https://project-delta-brown.vercel.app" target="_blank"><img width='800px'  src='https://user-images.githubusercontent.com/99184393/192708364-69501c04-cf85-4ff4-b3a6-2a0adf2649c0.png' alt='image'/></a>
+<a href="https://project-delta-brown.vercel.app" target="_blank"><img width='800' src='https://user-images.githubusercontent.com/99184393/192956366-2b529310-e3c3-4598-af6e-b3aa8a27c8ec.gif' alt='image'/></a>
 </div>
 
 ## <a href="https://project-delta-brown.vercel.app" target="_blank">LIVE DEMO 💥</a>
@@ -223,8 +222,9 @@ Project Link: [https://github.com/SashenJayathilaka/Facebook-Clone.git](https://
 <br />
 
 <div align="center">
-<a href="https://project-delta-brown.vercel.app" target="_blank"><img   src='https://user-images.githubusercontent.com/99184393/192711354-6a2ebaf8-2fb2-4860-b0ec-6cfd317039b8.png' alt='image'/><img   src='https://user-images.githubusercontent.com/99184393/192710285-16960fea-d4db-4e81-a27b-12a4a33c0288.png' alt='image'/></a>
+<a href="https://project-delta-brown.vercel.app" target="_blank"><img   src='https://user-images.githubusercontent.com/99184393/192952836-c2762b43-b25b-45d4-bb63-8c4471482756.png' alt='image'/><img   src='https://user-images.githubusercontent.com/99184393/192953737-1ea78051-39d7-473b-86d3-525c485f834f.png' alt='image'/></a>
 </div>
 
+<br />
 
 <div align="center">Don't forget to leave a star ⭐️</div>
