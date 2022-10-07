@@ -16,6 +16,7 @@ import { auth } from "../firebase/firebase";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useTheme } from "next-themes";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import { motion } from "framer-motion";
 
 type NavBarProps = {};
 
@@ -193,25 +194,29 @@ const NavBar: React.FC<NavBarProps> = () => {
           )}
           {resolvedTheme === "dark" ? (
             <li>
-              <div
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() =>
                   setTheme(resolvedTheme === "dark" ? "light" : "dark")
                 }
                 className="text-xl grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
               >
                 <LightModeIcon />
-              </div>
+              </motion.div>
             </li>
           ) : (
             <li>
-              <div
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() =>
                   setTheme(resolvedTheme === "dark" ? "light" : "dark")
                 }
                 className="text-xl grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
               >
                 <DarkModeIcon />
-              </div>
+              </motion.div>
             </li>
           )}
         </ul>

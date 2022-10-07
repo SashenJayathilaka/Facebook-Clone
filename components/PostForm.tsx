@@ -7,6 +7,7 @@ import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import PostModel from "./models/PostModel";
+import { motion } from "framer-motion";
 
 type PostFormProps = {};
 
@@ -31,16 +32,20 @@ const PostForm: React.FC<PostFormProps> = () => {
         </div>
       </div>
       <div className="p-2 flex">
-        <div
+        <motion.div
           onClick={handleOpen}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl sm:text-3xl py-2 rounded-lg cursor-pointer text-red-500"
         >
           <VideoCallIcon />
           <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-white">
             Live video
           </span>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           onClick={handleOpen}
           className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800  text-xl sm:text-3xl py-2 rounded-lg cursor-pointer text-green-500"
         >
@@ -48,8 +53,10 @@ const PostForm: React.FC<PostFormProps> = () => {
           <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-white">
             Photos
           </span>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           onClick={handleOpen}
           className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl sm:text-3xl py-2 rounded-lg cursor-pointer text-yellow-500"
         >
@@ -57,7 +64,7 @@ const PostForm: React.FC<PostFormProps> = () => {
           <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-white">
             Feeling
           </span>
-        </div>
+        </motion.div>
       </div>
       <PostModel setOpen={setOpen} open={open} />
     </div>

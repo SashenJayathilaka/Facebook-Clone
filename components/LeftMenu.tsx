@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { signOut } from "firebase/auth";
+import { motion } from "framer-motion";
+import moment from "moment";
 import { useRouter } from "next/router";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
-import moment from "moment";
 
 type LeftMenuProps = {};
 
@@ -99,7 +100,8 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
               <span className="font-semibold">{user?.displayName}</span>
             </div>
           ) : (
-            <div
+
+           <div
               className="animate-pulse flex items-center space-x-2 p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition-all dark:text-dark-txt"
               onClick={() => router.push("/auth/login")}
             >
@@ -110,6 +112,8 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
               />
               <span className="font-semibold">Sign Up</span>
             </div>
+      
+ 
           )}
         </li>
         {user && (

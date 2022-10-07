@@ -1,15 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from "react";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
-import InsertCommentIcon from "@mui/icons-material/InsertComment";
-import ReplyIcon from "@mui/icons-material/Reply";
-import moment from "moment";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, firestore } from "../firebase/firebase";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import { faker } from "@faker-js/faker";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import InsertCommentIcon from "@mui/icons-material/InsertComment";
+import LoopIcon from "@mui/icons-material/Loop";
+import ReplyIcon from "@mui/icons-material/Reply";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import {
   addDoc,
   collection,
@@ -21,8 +19,11 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import LoopIcon from "@mui/icons-material/Loop";
-import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+import moment from "moment";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, firestore } from "../firebase/firebase";
+import { motion } from "framer-motion";
 
 type PostProps = {
   author: any;
@@ -171,29 +172,36 @@ const Post: React.FC<PostProps> = ({
       {/* <!-- END POST REACT --> */}
 
       {/* <!-- POST ACTION --> */}
+
       <div className="py-2 px-4">
         {user && (
           <div className="border border-gray-200 dark:border-gray-900 border-l-0 border-r-0 py-1">
             <div className="flex space-x-2">
               {hasLikes ? (
-                <div
+                <motion.div
                   className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800  text-xl py-2 rounded-lg cursor-pointer text-blue-500"
                   onClick={likePost}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <ThumbUpIcon />
                   <span className="text-sm font-semibold">Like</span>
-                </div>
+                </motion.div>
               ) : (
-                <div
+                <motion.div
                   className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200  text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300"
                   onClick={likePost}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <ThumbUpOutlinedIcon />
                   <span className="text-sm font-semibold">Like</span>
-                </div>
+                </motion.div>
               )}
 
-              <div
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 className={
                   open
                     ? `w-1/3 flex space-x-2 justify-center items-center bg-gray-100 dark:bg-gray-800  dark:hover:bg-gray-800  text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200`
@@ -203,11 +211,15 @@ const Post: React.FC<PostProps> = ({
               >
                 <InsertCommentIcon />
                 <span className="text-sm font-semibold">Comment</span>
-              </div>
-              <div className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200">
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200"
+              >
                 <ReplyIcon />
                 <span className="text-sm font-semibold">Share</span>
-              </div>
+              </motion.div>
             </div>
           </div>
         )}
@@ -221,6 +233,7 @@ const Post: React.FC<PostProps> = ({
             <>
               <div className="py-2 px-4  h-36 overflow-y-scroll scrollbar-thin scrollbar-thumb-black">
                 {/* <!-- COMMENT --> */}
+
                 {comments.map((data) => (
                   <>
                     <div className="flex space-x-2">
@@ -297,6 +310,7 @@ const Post: React.FC<PostProps> = ({
           )}
         </>
       )}
+
       {/* <!-- END COMMENT FORM --> */}
     </div>
   );
