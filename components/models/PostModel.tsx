@@ -25,10 +25,16 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, firestore, storage } from "../../firebase/firebase";
 import useSelectFile from "../../hooks/useSelectFile";
 import PhotoModel from "./PhotoModel";
+import { motion } from "framer-motion";
 
 type Props = {
   setOpen: any;
   open: any;
+};
+
+const variants = {
+  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, x: "-100%" },
 };
 
 const style = {
@@ -145,10 +151,16 @@ export default function PostModel({ setOpen, open }: Props) {
             <div className="text-start mt-auto mb-auto ml-5 font-semibold text-xl">
               <h1>Add to yor post</h1>
             </div>
-            <div className="m-3">
-              <IconButton onClick={() => setSecondOpen(true)}>
-                <AddPhotoAlternateIcon className="text-green-500  text-3xl hover:bg-green-200 dark:hover:bg-gray-800 rounded-full" />
-              </IconButton>
+            <motion.div className="m-3 flex">
+              <motion.nav
+                animate={secondOpen ? true : false}
+                variants={variants}
+              >
+                <IconButton onClick={() => setSecondOpen(true)}>
+                  <AddPhotoAlternateIcon className="text-green-500  text-3xl hover:bg-green-200 dark:hover:bg-gray-800 rounded-full" />
+                </IconButton>
+              </motion.nav>
+
               <IconButton onClick={() => setSecondOpen(true)}>
                 <VideoCallIcon className="text-purple-500 text-3xl hover:bg-green-200 dark:hover:bg-gray-800 rounded-full" />
               </IconButton>
@@ -164,7 +176,7 @@ export default function PostModel({ setOpen, open }: Props) {
               <IconButton>
                 <MoreHorizIcon className="text-gray-500 text-2xl hover:bg-red-200 dark:hover:bg-gray-800 dark:text-gray-200 rounded-full" />
               </IconButton>
-            </div>
+            </motion.div>
           </div>
           <div className="flex justify-end mt-5 cursor-pointer">
             {loading ? (

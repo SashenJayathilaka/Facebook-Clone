@@ -36,7 +36,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
         <div className="mt-2">
           <div className="flex items-center space-x-4  dark:hover:bg-dark-third rounded-lg transition-all cursor-pointer">
             <img
-              src="https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?Monday,%2015-Aug-2022%2021:01:40%20GMT"
+              src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Apple-logo.png"
               alt="Profile picture"
               className="w-8 h-8 rounded-full"
             />
@@ -69,7 +69,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
           <div className="flex justify-between mt-3 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-800 px-2 py-2 rounded-md">
             <img
               className="w-8 h-8 mr-2"
-              src="https://i.postimg.cc/Hx6JnHMg/58-580552-blue-red-ribbon-clip-art-cobalt-blue-present.png"
+              src="https://freepikpsd.com/file/2019/10/birthday-present-transparent-background-5-Transparent-Images.png"
               alt=""
             />
             <p className="text-md">

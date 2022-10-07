@@ -34,7 +34,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
         <div className="mt-2">
           <div className="flex items-center space-x-4  dark:hover:bg-dark-third rounded-lg transition-all cursor-pointer">
             <img
-              src="https://th.bing.com/th/id/R.ad2de0999f1f16026fcad47e56bb7b3c?rik=U5o8YUw15qWhmw&pid=ImgRaw&r=0"
+              src="https://www.pngmart.com/files/22/Tesla-Logo-PNG-Isolated-File.png"
               alt="Profile picture"
               className="w-8 h-8 rounded-full"
             />
