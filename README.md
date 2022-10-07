@@ -166,6 +166,8 @@ Clone the project
   git clone https://github.com/SashenJayathilaka/Facebook-Clone.git
 ```
 
+change directory
+
 ```bash
   cd Facebook-Clone
 ```
