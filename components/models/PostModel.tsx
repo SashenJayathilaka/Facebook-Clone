@@ -156,14 +156,22 @@ export default function PostModel({ setOpen, open }: Props) {
                 animate={secondOpen ? true : false}
                 variants={variants}
               >
-                <IconButton onClick={() => setSecondOpen(true)}>
-                  <AddPhotoAlternateIcon className="text-green-500  text-3xl hover:bg-green-200 dark:hover:bg-gray-800 rounded-full" />
-                </IconButton>
+                <motion.div
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 1.5 }}
+                >
+                  <IconButton onClick={() => setSecondOpen(true)}>
+                    <AddPhotoAlternateIcon className="text-green-500  text-3xl hover:bg-green-200 dark:hover:bg-gray-800 rounded-full" />
+                  </IconButton>
+                </motion.div>
               </motion.nav>
 
-              <IconButton onClick={() => setSecondOpen(true)}>
-                <VideoCallIcon className="text-purple-500 text-3xl hover:bg-green-200 dark:hover:bg-gray-800 rounded-full" />
-              </IconButton>
+              <motion.div whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.5 }}>
+                <IconButton onClick={() => setSecondOpen(true)}>
+                  <VideoCallIcon className="text-purple-500 text-3xl hover:bg-green-200 dark:hover:bg-gray-800 rounded-full" />
+                </IconButton>
+              </motion.div>
+
               <IconButton>
                 <PersonAddIcon className="text-blue-500  text-3xl hover:bg-red-200 dark:hover:bg-gray-800 rounded-full" />
               </IconButton>

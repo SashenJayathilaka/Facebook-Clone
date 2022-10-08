@@ -89,7 +89,7 @@ const Messenger: React.FC<MessengerProps> = () => {
           </div>
         </div>
         <div
-          className="flex flex-col flex-grow h-0 p-4 overflow-auto hover:scrollbar-thin
+          className="flex flex-col flex-grow h-0 p-4 overflow-y-auto hover:scrollbar-thin  overflow-x-hidden
     hover:scrollbar-thumb-black scrollbar-hide hover:scrollbar-default dark:bg-[#28282B] dark:border-none"
         >
           {meassage.map((data) => (
