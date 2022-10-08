@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Feed from "../components/Feed";
 import LeftMenu from "../components/LeftMenu";
@@ -16,6 +16,12 @@ import { auth } from "../firebase/firebase";
 const Home: NextPage = () => {
   const [user] = useAuthState(auth);
   const [isMessenger, setIsMessenger] = useState(false);
+
+  useEffect(() => {
+    if (!user) {
+      setIsMessenger(false);
+    }
+  }, [user]);
 
   return (
     <div className="bg-[#f7f7f7] dark:bg-[#18191a]">
