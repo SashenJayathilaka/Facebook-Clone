@@ -61,6 +61,16 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
     await signOut(auth);
   };
 
+  const handleChangePage = () => {
+    router.push({
+      pathname: `profile/${user?.uid}`,
+      query: {
+        /*  userId: user?.uid, */
+        userName: user?.displayName,
+      },
+    });
+  };
+
   /*   const [suggestions, setSuggestions] = useState<any[]>([]);
 
   useEffect(() => {
@@ -89,7 +99,7 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
         <li>
           {user ? (
             <div
-              onClick={logout}
+              onClick={handleChangePage}
               className="flex items-center space-x-2 p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third dark:hover:text-white cursor-pointer"
             >
               <img
@@ -100,8 +110,7 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
               <span className="font-semibold">{user?.displayName}</span>
             </div>
           ) : (
-
-           <div
+            <div
               className="animate-pulse flex items-center space-x-2 p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition-all dark:text-dark-txt"
               onClick={() => router.push("/auth/login")}
             >
@@ -112,8 +121,6 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
               />
               <span className="font-semibold">Sign Up</span>
             </div>
-      
- 
           )}
         </li>
         {user && (

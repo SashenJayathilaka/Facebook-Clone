@@ -60,6 +60,7 @@ export default function PostModel({ setOpen, open }: Props) {
     setLoading(true);
     try {
       const docRef = await addDoc(collection(firestore, "posts"), {
+        userId: user?.uid,
         username: user?.displayName,
         caption: caption,
         profileImage: user?.photoURL,

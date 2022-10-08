@@ -8,22 +8,47 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import PostModel from "./models/PostModel";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
-type PostFormProps = {};
+type PostFormProps = {
+  isShow: boolean;
+  userData?: any;
+};
 
-const PostForm: React.FC<PostFormProps> = () => {
+const PostForm: React.FC<PostFormProps> = ({ userData, isShow }) => {
   const [user] = useAuthState(auth);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
+  const router = useRouter();
+
+  const click = () => {
+    router.push({
+      pathname: `profile/${user?.uid}`,
+      query: {
+        /*  userId: user?.uid, */
+        userName: user?.displayName?.toString(),
+      },
+    });
+  };
 
   return (
     <div className="px-4 mt-4 shadow rounded-lg bg-white dark:bg-[#28282B]">
       <div className="p-2 border-b border-gray-300 dark:border-dark-third flex space-x-4">
-        <img
-          src={user?.photoURL as string}
-          alt="Profile picture"
-          className="w-10 h-10 rounded-full"
-        />
+        {isShow ? (
+          <img
+            onClick={click}
+            src={user?.photoURL as string}
+            alt="Profile picture"
+            className="w-10 h-10 rounded-full cursor-pointer"
+          />
+        ) : (
+          <img
+            src={userData.profileImage}
+            alt="Profile picture"
+            className="w-10 h-10 rounded-full"
+          />
+        )}
+
         <div
           onClick={handleOpen}
           className="flex-1 bg-gray-100 rounded-full flex items-center justify-start pl-4 cursor-pointer dark:bg-gray-600 dark:text-gray-300 text-gray-500 text-lg"

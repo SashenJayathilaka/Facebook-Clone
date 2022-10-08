@@ -24,6 +24,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, firestore } from "../firebase/firebase";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 type PostProps = {
   author: any;
@@ -32,6 +33,7 @@ type PostProps = {
   profileImage: any;
   timestamp: any;
   id: any;
+  isClicked?: boolean;
 };
 
 const Post: React.FC<PostProps> = ({
@@ -41,8 +43,10 @@ const Post: React.FC<PostProps> = ({
   profileImage,
   timestamp,
   id,
+  isClicked,
 }) => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
   const [user] = useAuthState(auth);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState<any[]>([]);
@@ -108,6 +112,18 @@ const Post: React.FC<PostProps> = ({
     }
   };
 
+  const handleChangePage = () => {
+    if (isClicked) {
+      router.push({
+        pathname: `profile/${id}`,
+        query: {
+          /*  userId: user?.uid, */
+          userName: author.toString(),
+        },
+      });
+    }
+  };
+
   return (
     <div className="shadow bg-white  dark:text-white mt-4 rounded-lg dark:shadow-2xl dark:bg-[#28282B]">
       {/* <!-- POST AUTHOR --> */}
@@ -115,14 +131,26 @@ const Post: React.FC<PostProps> = ({
         <div className="flex space-x-2 items-center">
           <div className="relative">
             <img
+              onClick={handleChangePage}
               src={profileImage}
               alt="Profile picture"
-              className="w-10 h-10 rounded-full"
+              className={
+                isClicked
+                  ? `w-10 h-10 rounded-full cursor-pointer`
+                  : `w-10 h-10 rounded-full`
+              }
             />
             <span className="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
           </div>
           <div>
-            <div className="font-semibold">{author}</div>
+            <div
+              className={
+                isClicked ? `font-semibold cursor-pointer` : `font-semibold`
+              }
+              onClick={handleChangePage}
+            >
+              {author}
+            </div>
             <span className="text-sm text-gray-500 dark:text-gray-400">
               {moment(new Date(timestamp?.seconds * 1000)).fromNow()}
             </span>
