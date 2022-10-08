@@ -50,6 +50,7 @@ export default function Feed({}: Props) {
                 image={post.data().image}
                 profileImage={post.data().profileImage}
                 timestamp={post.data().timestamp}
+                isClicked={true}
               />
             </div>
           ))}

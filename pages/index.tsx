@@ -34,7 +34,11 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <NavBar setIsMessenger={setIsMessenger} isMessenger={isMessenger} />
+      <NavBar
+        setIsMessenger={setIsMessenger}
+        isMessenger={isMessenger}
+        isShow={true}
+      />
       <section className="flex justify-center h-screen overflow-y-scroll">
         <LeftMenu />
 
@@ -48,7 +52,7 @@ const Home: NextPage = () => {
               {user && (
                 <>
                   <MainContent />
-                  <PostForm />
+                  <PostForm isShow={true} />
                   <Room />
                 </>
               )}
