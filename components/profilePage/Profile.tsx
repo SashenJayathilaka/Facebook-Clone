@@ -1,24 +1,32 @@
 import { faker } from "@faker-js/faker";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import PostForm from "../PostForm";
 import ProfileFeed from "./ProfileFeed";
 import ProfileHeader from "./ProfileHeader";
+import { auth } from "../../firebase/firebase";
 
 type ProfileProps = {};
 
 const Profile: React.FC<ProfileProps> = () => {
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [userDetails, setUserDetails] = useState<any[]>([]);
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState<any[]>([]);
+  const [isShow, setIsShow] = useState(false);
   const router = useRouter();
   const { userName } = router.query;
+  const [user] = useAuthState(auth);
 
   const filterUserData = () => {
     try {
       userDetails.map((data) => {
         if (data.data().username === userName) {
           setUserData(data.data());
+
+          if (data.data().username === user?.displayName) {
+            setIsShow(true);
+          }
         }
       });
     } catch (error) {
@@ -95,7 +103,12 @@ const Profile: React.FC<ProfileProps> = () => {
                     </div>
                     {/* List */}
                     <div className="">
-                      <p className="text-base text-gray-400">1000 friends</p>
+                      <p className="text-base text-gray-400">
+                        {faker.datatype.number({
+                          min: 500,
+                          max: 3000,
+                        })}
+                      </p>
                       <div className="grid grid-cols-3 gap-1">
                         {suggestions.map((data, index) => (
                           <div className="bg-white p-0.5" key={index}>
@@ -117,7 +130,8 @@ const Profile: React.FC<ProfileProps> = () => {
               <div className="w-2/5">
                 {/* CREATE POST */}
                 {/*  <CreatePost /> */}
-                <PostForm isShow={false} userData={userData} />
+                {isShow && <PostForm isShow={false} userData={userData} />}
+
                 {/* END CREATE POST */}
 
                 {/* POST */}
