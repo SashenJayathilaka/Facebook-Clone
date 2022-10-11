@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { faker } from "@faker-js/faker";
 
 type RightMenuProps = {};
 
 const RightMenu: React.FC<RightMenuProps> = () => {
-  /*   const [suggestions, setSuggestions] = useState<any[]>([]);
+  const [suggestions, setSuggestions] = useState<any[]>([]);
 
   useEffect(() => {
     const suggestions = [...Array(5)].map((_, i) => ({
@@ -20,7 +21,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
     }));
     setSuggestions(suggestions);
     //console.log(suggestions);
-  }, []); */
+  }, []);
 
   return (
     <div className="w-1/5 pt-16 h-full hidden xl:block px-4 fixed top-0 right-0 overflow-scroll scrollbar-hide">
@@ -70,17 +71,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
             </div>
           </div>
         </div> */}
-        <iframe
-          title="facebook Iframe"
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookforDevelopers&tabs=timeline&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-          height="500"
-          style={{ border: "none", overflow: "hidden" }}
-          scrolling="no"
-          frameBorder="0"
-          allow="encrypted-media"
-          className="rounded-md"
-        ></iframe>
-        {/*         <ul className="p-2">
+        <ul className="p-2">
           {suggestions.map((data, index) => (
             <li key={index}>
               <div className="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg cursor-pointer">
@@ -98,7 +89,7 @@ const RightMenu: React.FC<RightMenuProps> = () => {
               </div>
             </li>
           ))}
-        </ul> */}
+        </ul>
       </div>
     </div>
   );
