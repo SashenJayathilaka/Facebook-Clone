@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { signOut } from "firebase/auth";
+import { motion } from "framer-motion";
+import moment from "moment";
 import { useRouter } from "next/router";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
-import moment from "moment";
 
 type LeftMenuProps = {};
 
@@ -60,6 +61,16 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
     await signOut(auth);
   };
 
+  const handleChangePage = () => {
+    router.push({
+      pathname: `profile/${user?.uid}`,
+      query: {
+        /*  userId: user?.uid, */
+        userName: user?.displayName,
+      },
+    });
+  };
+
   /*   const [suggestions, setSuggestions] = useState<any[]>([]);
 
   useEffect(() => {
@@ -88,7 +99,7 @@ const LeftMenu: React.FC<LeftMenuProps> = () => {
         <li>
           {user ? (
             <div
-              onClick={logout}
+              onClick={handleChangePage}
               className="flex items-center space-x-2 p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third dark:hover:text-white cursor-pointer"
             >
               <img

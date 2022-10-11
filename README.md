@@ -103,6 +103,7 @@ Install my-project with npm
 ```
 npx create-next-app@latest --ts my-project
 ```
+
 ```
 cd my-project
 ```
@@ -163,6 +164,12 @@ Clone the project
 
 ```bash
   git clone https://github.com/SashenJayathilaka/Facebook-Clone.git
+```
+
+change directory
+
+```bash
+  cd Facebook-Clone
 ```
 
 Install dependencies

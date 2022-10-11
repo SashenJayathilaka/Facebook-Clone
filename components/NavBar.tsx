@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import AddIcon from "@mui/icons-material/Add";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import HomeIcon from "@mui/icons-material/Home";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import MenuIcon from "@mui/icons-material/Menu";
 import MessageIcon from "@mui/icons-material/Message";
@@ -9,17 +11,25 @@ import PeopleIcon from "@mui/icons-material/People";
 import StoreIcon from "@mui/icons-material/Store";
 import ViewComfyIcon from "@mui/icons-material/ViewComfy";
 import { signOut } from "firebase/auth";
+import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import { useTheme } from "next-themes";
-import LightModeIcon from "@mui/icons-material/LightMode";
+import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 
-type NavBarProps = {};
+type NavBarProps = {
+  isMessenger?: boolean;
+  setIsMessenger?: any;
+  isShow: boolean;
+};
 
-const NavBar: React.FC<NavBarProps> = () => {
+const NavBar: React.FC<NavBarProps> = ({
+  isMessenger,
+  setIsMessenger,
+  isShow,
+}) => {
   const [user] = useAuthState(auth);
   const router = useRouter();
   const { setTheme, resolvedTheme, theme } = useTheme();
@@ -34,7 +44,10 @@ const NavBar: React.FC<NavBarProps> = () => {
         <div className="flex items-center justify-between w-full md:w-max px-4 py-2">
           {user ? (
             <>
-              <div className="mr-2 hidden md:inline-block cursor-pointer">
+              <div
+                className="mr-2 hidden md:inline-block cursor-pointer"
+                onClick={() => router.push("/")}
+              >
                 <img
                   src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png"
                   alt="Facebook logo"
@@ -158,16 +171,38 @@ const NavBar: React.FC<NavBarProps> = () => {
           </li>
           {user && (
             <>
-              <li>
+              {/*               <li>
                 <div className="text-xl hidden xl:grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
                   <AddIcon />
                 </div>
-              </li>
-              <li>
-                <div className="text-xl hidden xl:grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
-                  <MessageIcon />
-                </div>
-              </li>
+              </li> */}
+              {isShow && (
+                <li>
+                  {isMessenger ? (
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      onClick={() => setIsMessenger(false)}
+                      className="text-xl xl:grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
+                    >
+                      <DynamicFeedIcon />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      onClick={() => setIsMessenger(true)}
+                      className="text-xl  xl:grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
+                    >
+                      <MessageIcon />
+                      <span className="animate-ping text-xs absolute top-0 right-0 bg-blue-500 text-white font-semibold rounded-full px-1 text-center">
+                        New
+                      </span>
+                    </motion.div>
+                  )}
+                </li>
+              )}
+
               <li>
                 <div className="text-xl grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
                   <NotificationsIcon />
@@ -193,25 +228,29 @@ const NavBar: React.FC<NavBarProps> = () => {
           )}
           {resolvedTheme === "dark" ? (
             <li>
-              <div
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() =>
                   setTheme(resolvedTheme === "dark" ? "light" : "dark")
                 }
                 className="text-xl grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
               >
                 <LightModeIcon />
-              </div>
+              </motion.div>
             </li>
           ) : (
             <li>
-              <div
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() =>
                   setTheme(resolvedTheme === "dark" ? "light" : "dark")
                 }
                 className="text-xl grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
               >
                 <DarkModeIcon />
-              </div>
+              </motion.div>
             </li>
           )}
         </ul>
