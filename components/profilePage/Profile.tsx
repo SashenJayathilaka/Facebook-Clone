@@ -2,10 +2,13 @@ import { faker } from "@faker-js/faker";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+
 import PostForm from "../PostForm";
 import ProfileFeed from "./ProfileFeed";
 import ProfileHeader from "./ProfileHeader";
 import { auth } from "../../firebase/firebase";
+import CustomPosts from "./CustomPosts";
+import Intro from "./Intro";
 
 type ProfileProps = {};
 
@@ -62,13 +65,9 @@ const Profile: React.FC<ProfileProps> = () => {
               {/* LEFT */}
               <div>
                 {/* // INTRO */}
+
                 <div className="mr-12 mt-4">
-                  <div
-                    className="p-4 shadow rounded-lg bg-white w-80 dark:bg-gray-800"
-                    id="intro"
-                  >
-                    <h1 className="font-bold text-xl">Intro</h1>
-                  </div>
+                  <Intro />
                 </div>
                 {/* // END INTRO */}
 
@@ -131,6 +130,8 @@ const Profile: React.FC<ProfileProps> = () => {
                 {/* CREATE POST */}
                 {/*  <CreatePost /> */}
                 {isShow && <PostForm isShow={false} userData={userData} />}
+
+                <CustomPosts />
 
                 {/* END CREATE POST */}
 

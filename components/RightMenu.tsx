@@ -73,7 +73,7 @@ const RightMenu: React.FC<RightMenuProps> = ({ isMessenger }) => {
               <div className="flex justify-between mt-3 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-800 px-2 py-2 rounded-md">
                 <img
                   className="w-8 h-8 mr-2"
-                  src="https://freepikpsd.com/file/2019/10/birthday-present-transparent-background-5-Transparent-Images.png"
+                  src="https://i.postimg.cc/jdr7fwV8/gift.png"
                   alt=""
                 />
                 <p className="text-md">
