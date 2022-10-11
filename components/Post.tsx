@@ -19,12 +19,12 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
+import { motion } from "framer-motion";
 import moment from "moment";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, firestore } from "../firebase/firebase";
-import { motion } from "framer-motion";
-import { useRouter } from "next/router";
 
 type PostProps = {
   author: any;
@@ -178,17 +178,45 @@ const Post: React.FC<PostProps> = ({
       <div className="px-4 py-2">
         <div className="flex items-center justify-between">
           <div className="flex flex-row-reverse items-center">
-            <span className="ml-2 text-gray-500 dark:text-gray-300">
-              {likes.length}
+            {user ? (
+              <>
+                {hasLikes ? (
+                  <span className="ml-2 text-gray-500 dark:text-gray-300 text-sm">
+                    {"You, "}
+                    {faker.name.fullName()} {"and"} {likes.length} {"others"}
+                  </span>
+                ) : (
+                  <span className="ml-2 text-gray-500 dark:text-gray-300 text-sm">
+                    {faker.name.fullName()} {"and"} {likes.length} {"others"}
+                  </span>
+                )}
+              </>
+            ) : (
+              <span className="ml-2 text-gray-500 dark:text-gray-300 text-sm">
+                {likes.length}
+              </span>
+            )}
+
+            <span className="rounded-full grid place-items-center text-2xl -ml-1 text-yellow-600">
+              <img
+                src="https://i.postimg.cc/L89gyc8L/heart.png"
+                alt="like/button"
+                className="w-5 h-5"
+              />
             </span>
-            <span className="rounded-full grid place-items-center text-2xl -ml-2 text-yellow-600">
-              <EmojiEmotionsIcon />
+            <span className="rounded-full grid place-items-center text-2xl -ml-1 text-red-500">
+              <img
+                src="https://i.postimg.cc/4xW7jWYM/haha.png"
+                alt="like/button"
+                className="w-5 h-5"
+              />
             </span>
-            <span className="rounded-full grid place-items-center text-2xl -ml-2 text-red-500">
-              <FavoriteIcon />
-            </span>
-            <span className="rounded-full grid place-items-center text-2xl -ml-2 text-blue-500">
-              <ThumbUpIcon />
+            <span className="rounded-full grid place-items-center text-2xl -ml-1 text-blue-500">
+              <img
+                src="https://i.postimg.cc/bNH29ypq/like.png"
+                alt="like/button"
+                className="w-5 h-5"
+              />
             </span>
           </div>
           <div className="text-gray-500 dark:text-gray-300">
