@@ -1,4 +1,15 @@
-# Facebook 2.0 Clone With ReactJs!
+<div align="center">
+
+  <img src="https://user-images.githubusercontent.com/99184393/192714524-ac80004b-8cfa-4bd5-9fd9-880edaf86f58.png" alt="logo" width="160" height="auto" />
+  
+  <h1>Facebook Clone</h1>
+  
+  <p>
+  Facebook 2.0 with REACT.JS! (Next.js, Tailwind CSS, Image Uploading, Facebook Authentication, Google Authentication, Dark Mode & Light Mode, Facebook Profile)
+  </p>
+  
+  
+<!-- Badges -->
 
 <a href="https://project-delta-brown.vercel.app" target="_blank">![](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)</a>
 ![](https://img.shields.io/badge/Maintained-Yes-indigo)
@@ -6,6 +17,37 @@
 ![](https://img.shields.io/github/stars/SashenJayathilaka/Facebook-Clone.svg)
 ![](https://img.shields.io/github/issues/SashenJayathilaka/Facebook-Clone)
 ![](https://img.shields.io/github/last-commit/SashenJayathilaka/Facebook-Clone)
+
+   
+<h4>
+    <a href="https://project-delta-brown.vercel.app">View Demo</a>
+  <span> · </span>
+    <a href="https://github.com/SashenJayathilaka/Facebook-Clone/blob/master/README.md">Documentation</a>
+  <span> · </span>
+    <a href="https://github.com/SashenJayathilaka/Facebook-Clone/issues">Report Bug</a>
+  <span> · </span>
+    <a href="https://github.com/SashenJayathilaka/Facebook-Clone/issues">Request Feature</a>
+  </h4>
+</div>
+
+<br />
+
+<!-- Table of Contents -->
+## :notebook_with_decorative_cover: Table of Contents
+
+- [About the Project](#star2-about-the-project)
+  * [Screenshots](#camera-screenshots)
+  * [Tech Stack](#space_invader-tech-stack)
+  * [Environment Variables](#key-environment-variables)
+- [Getting Started](#toolbox-getting-started)
+  * [Prerequisites](#bangbang-prerequisites)
+  * [Installation](#gear-installation)
+  * [Run Locally](#running-run-locally)
+  * [Deployment](#triangular_flag_on_post-deployment)
+- [Contact](#handshake-contact)
+
+<!-- About the Project -->
+## :star2: About the Project
 
 <!-- Screenshots -->
 
