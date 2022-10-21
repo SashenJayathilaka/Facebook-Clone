@@ -2,7 +2,7 @@
 
   <img src="https://user-images.githubusercontent.com/99184393/192714524-ac80004b-8cfa-4bd5-9fd9-880edaf86f58.png" alt="logo" width="160" height="auto" />
   
-  <h1>Facebook Clone</h1>
+  <h1>Facebook Clone with React.JS</h1>
   
   <p>
   Facebook 2.0 with REACT.JS! (Next.js, Tailwind CSS, Image Uploading, Facebook Authentication, Google Authentication, Dark Mode & Light Mode, Facebook Profile)
@@ -196,7 +196,7 @@ Add the `@tailwind` directives for each of Tailwind’s layers to your `./styles
 
 Install dependencies
 
-<a href="https://github.com/SashenJayathilaka/Facebook-Clone/blob/master/package.json" target="_blank">🔶 Other Dependency Info</a>
+<a href="https://github.com/SashenJayathilaka/Facebook-Clone/blob/master/package.json" target="_blank">🔷 Other Dependency Info</a>
 
 <!-- Run Locally -->
 
