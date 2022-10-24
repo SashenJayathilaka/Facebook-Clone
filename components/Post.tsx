@@ -25,7 +25,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, firestore } from "../firebase/firebase";
 
 const reactionImages = [
-  "https://i.postimg.cc/dQ50twjq/Nice-Png-facebook-reactions-png-928837.png",
+  "https://i.postimg.cc/wT6gNPFw/pngwing-com-1.png",
   "https://i.postimg.cc/4xW7jWYM/haha.png",
   "https://i.postimg.cc/d1K918vT/Nice-Png-waluigi-face-png-7760819.png",
   "https://i.postimg.cc/9FSg2w4y/pngwing-com-2.png",
