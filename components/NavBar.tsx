@@ -1,23 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
-import AddIcon from "@mui/icons-material/Add";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import HomeIcon from "@mui/icons-material/Home";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
-import MenuIcon from "@mui/icons-material/Menu";
-import MessageIcon from "@mui/icons-material/Message";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import PeopleIcon from "@mui/icons-material/People";
-import StoreIcon from "@mui/icons-material/Store";
-import ViewComfyIcon from "@mui/icons-material/ViewComfy";
 import { signOut } from "firebase/auth";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../firebase/firebase";
+
+// icon
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
+import HomeIcon from "@mui/icons-material/Home";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import LiveTvIcon from "@mui/icons-material/LiveTv";
+import MenuIcon from "@mui/icons-material/Menu";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
+import ViewComfyOutlinedIcon from "@mui/icons-material/ViewComfyOutlined";
+
+import { auth } from "../firebase/firebase";
 
 type NavBarProps = {
   isMessenger?: boolean;
@@ -107,7 +108,7 @@ const NavBar: React.FC<NavBarProps> = ({
         <ul className="flex w-full lg:w-max items-center justify-center">
           <li className="w-1/5 md:w-max text-center">
             <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block text-blue-500 border-b-4 border-blue-500">
-              <HomeIcon className="" />
+              <HomeIcon />
             </div>
           </li>
           {user && (
@@ -122,17 +123,17 @@ const NavBar: React.FC<NavBarProps> = ({
               </li>
               <li className="w-1/5 md:w-max text-center">
                 <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer dark:text-gray-300 dark:hover:bg-gray-800 text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
-                  <StoreIcon />
+                  <StoreOutlinedIcon />
                 </div>
               </li>
               <li className="w-1/5 md:w-max text-center">
                 <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer dark:text-gray-300 dark:hover:bg-gray-800 text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
-                  <PeopleIcon />
+                  <PeopleAltOutlinedIcon />
                 </div>
               </li>
               <li className="w-1/5 md:w-max text-center hidden md:inline-block">
                 <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer dark:text-gray-300 dark:hover:bg-gray-800 text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
-                  <ViewComfyIcon />
+                  <ViewComfyOutlinedIcon />
                   <span className="text-xs absolute top-2 right-1/4 bg-red-500 text-white font-semibold rounded-full px-1 text-center">
                     9+
                   </span>
@@ -140,7 +141,7 @@ const NavBar: React.FC<NavBarProps> = ({
               </li>
               <li className="w-1/5 md:w-max text-center inline-block md:hidden">
                 <div className="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer dark:text-gray-300 dark:hover:bg-gray-800 text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
-                  <ViewComfyIcon />
+                  <ViewComfyOutlinedIcon />
                 </div>
               </li>
             </>
@@ -194,10 +195,22 @@ const NavBar: React.FC<NavBarProps> = ({
                       onClick={() => setIsMessenger(true)}
                       className="text-xl  xl:grid place-items-center bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
                     >
-                      <MessageIcon />
-                      <span className="animate-ping text-xs absolute top-0 right-0 bg-blue-500 text-white font-semibold rounded-full px-1 text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+
+                      {/*            <span className="animate-ping text-xs absolute top-0 right-0 bg-blue-500 text-white font-semibold rounded-full px-1 text-center">
                         New
-                      </span>
+                      </span> */}
                     </motion.div>
                   )}
                 </li>
