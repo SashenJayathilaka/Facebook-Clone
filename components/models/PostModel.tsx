@@ -1,3 +1,20 @@
+import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast, { Toaster } from "react-hot-toast";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  Timestamp,
+  updateDoc,
+} from "firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "firebase/storage";
+import { auth, firestore, storage } from "../../firebase/firebase";
+import useSelectFile from "../../hooks/useSelectFile";
+import PhotoModel from "./PhotoModel";
+import { motion } from "framer-motion";
+
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LoopIcon from "@mui/icons-material/Loop";
@@ -11,21 +28,6 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
-import {
-  addDoc,
-  collection,
-  doc,
-  serverTimestamp,
-  Timestamp,
-  updateDoc,
-} from "firebase/firestore";
-import { getDownloadURL, ref, uploadString } from "firebase/storage";
-import { useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, firestore, storage } from "../../firebase/firebase";
-import useSelectFile from "../../hooks/useSelectFile";
-import PhotoModel from "./PhotoModel";
-import { motion } from "framer-motion";
 
 type Props = {
   setOpen: any;
@@ -57,42 +59,57 @@ export default function PostModel({ setOpen, open }: Props) {
   const [loading, setLoading] = useState(false);
 
   const handleCreateCommunity = async () => {
-    setLoading(true);
-    try {
-      const docRef = await addDoc(collection(firestore, "posts"), {
-        userId: user?.uid,
-        username: user?.displayName,
-        caption: caption,
-        profileImage: user?.photoURL,
-        company: user?.email,
-        timestamp: serverTimestamp() as Timestamp,
-      });
+    if (caption || selectedFile) {
+      setLoading(true);
+      try {
+        const docRef = await addDoc(collection(firestore, "posts"), {
+          userId: user?.uid,
+          username: user?.displayName,
+          caption: caption,
+          profileImage: user?.photoURL,
+          company: user?.email,
+          timestamp: serverTimestamp() as Timestamp,
+        });
 
-      if (selectedFile) {
-        const imageRef = ref(storage, `posts/${docRef.id}/image`);
+        if (selectedFile) {
+          const imageRef = ref(storage, `posts/${docRef.id}/image`);
 
-        await uploadString(imageRef, selectedFile as string, "data_url").then(
-          async (snapshot) => {
-            const downloadUrl = await getDownloadURL(imageRef);
-            await updateDoc(doc(firestore, "posts", docRef.id), {
-              image: downloadUrl,
-            });
-          }
-        );
-      } else {
-        console.log("No Image");
+          await uploadString(imageRef, selectedFile as string, "data_url").then(
+            async (snapshot) => {
+              const downloadUrl = await getDownloadURL(imageRef);
+              await updateDoc(doc(firestore, "posts", docRef.id), {
+                image: downloadUrl,
+              });
+            }
+          );
+        } else {
+          console.log("No Image");
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
+      setSelectedFile("");
+      setCaption("");
+      setLoading(false);
+      handleClose();
+    } else {
+      toast.error("your post field is empty", {
+        duration: 3000,
+        position: "bottom-right",
+        style: {
+          background: "#fff",
+          color: "#015871",
+          fontWeight: "bolder",
+          fontSize: "17px",
+          padding: "20px",
+        },
+      });
     }
-    setSelectedFile("");
-    setCaption("");
-    setLoading(false);
-    handleClose();
   };
 
   return (
     <div>
+      <Toaster />
       <Modal
         open={open}
         onClose={handleClose}
@@ -197,7 +214,7 @@ export default function PostModel({ setOpen, open }: Props) {
                 className={
                   selectedFile || caption
                     ? `bg-blue-500 font-semibold cursor-pointer text-white rounded-xl text-md border border-blue-500 px-8 hover:bg-blue-300`
-                    : `bg-blue-500 font-semibold cursor-not-allowed text-white rounded-xl text-md border border-blue-500 px-8 hover:bg-blue-300`
+                    : `bg-gray-500 font-semibold cursor-not-allowed text-white rounded-xl text-md border border-gray-500 px-8`
                 }
                 onClick={handleCreateCommunity}
               >
