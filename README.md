@@ -271,9 +271,8 @@ Project Link: [https://github.com/SashenJayathilaka/Facebook-Clone.git](https://
 <br />
 
 <div align="center">
-<a href="https://project-delta-brown.vercel.app" target="_blank"><img   src='https://user-images.githubusercontent.com/99184393/192952836-c2762b43-b25b-45d4-bb63-8c4471482756.png' alt='image'/><img   src='https://user-images.githubusercontent.com/99184393/192953737-1ea78051-39d7-473b-86d3-525c485f834f.png' alt='image'/></a>
+<a href="https://project-delta-brown.vercel.app" target="_blank"><img   src='https://user-images.githubusercontent.com/99184393/192952836-c2762b43-b25b-45d4-bb63-8c4471482756.png' alt='image'/><img   src='https://user-images.githubusercontent.com/99184393/198054676-3369e796-663f-432d-becd-356c6af19baf.png' alt='image'/></a>
 </div>
-
 <br />
 
 <div align="center">Don't forget to leave a star ⭐️</div>
