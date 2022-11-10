@@ -18,7 +18,6 @@
 ![](https://img.shields.io/github/issues/SashenJayathilaka/Facebook-Clone)
 ![](https://img.shields.io/github/last-commit/SashenJayathilaka/Facebook-Clone)
 
-   
 <h4>
     <a href="https://project-delta-brown.vercel.app">View Demo</a>
   <span> · </span>
@@ -33,20 +32,22 @@
 <br />
 
 <!-- Table of Contents -->
+
 ## :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
-  * [Screenshots](#camera-screenshots)
-  * [Tech Stack](#space_invader-tech-stack)
-  * [Environment Variables](#key-environment-variables)
+  - [Screenshots](#camera-screenshots)
+  - [Tech Stack](#space_invader-tech-stack)
+  - [Environment Variables](#key-environment-variables)
 - [Getting Started](#toolbox-getting-started)
-  * [Prerequisites](#bangbang-prerequisites)
-  * [Installation](#gear-installation)
-  * [Run Locally](#running-run-locally)
-  * [Deployment](#triangular_flag_on_post-deployment)
+  - [Prerequisites](#bangbang-prerequisites)
+  - [Installation](#gear-installation)
+  - [Run Locally](#running-run-locally)
+  - [Deployment](#triangular_flag_on_post-deployment)
 - [Contact](#handshake-contact)
 
 <!-- About the Project -->
+
 ## :star2: About the Project
 
 <!-- Screenshots -->

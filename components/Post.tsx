@@ -22,6 +22,8 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 
+import { RiShareForwardLine } from "react-icons/ri";
+
 import { auth, firestore } from "../firebase/firebase";
 
 const reactionImages = [
@@ -382,20 +384,7 @@ const Post: React.FC<PostProps> = ({
                 whileTap={{ scale: 0.9 }}
                 className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3"
-                  />
-                </svg>
+                <RiShareForwardLine className="w-6 h-6" />
 
                 <span className="text-sm font-semibold">Share</span>
               </motion.div>
